@@ -1,0 +1,96 @@
+---
+import { site } from '../content/site';
+import '../styles/global.css';
+const bookingHref = site.bookingUrl || '#contact';
+const headlineParts = site.headline.split(' & ');
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#161d21" />
+    <title>CovePeak Media | Facebook, Instagram & Google Ads</title>
+    <meta name="description" content={site.description} />
+    <link rel="canonical" href="https://covepeakmedia.com/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:title" content="CovePeak Media | Digital Marketing Agency" />
+    <meta property="og:description" content={site.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://covepeakmedia.com/" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="header">
+      <div class="wrap nav-row">
+        <a class="brand" href="#home" aria-label="CovePeak Media home">
+          <svg class="brand-mark" viewBox="0 0 46 34" fill="none" aria-hidden="true"><path d="M2 29 20 3l10 15 6-8 10 19H34L20 10 7 29Z" fill="currentColor"/></svg>
+          <span>CovePeak<span class="brand-sub">MEDIA</span></span>
+        </a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="navigation" aria-label="Open navigation"><span></span><span></span></button>
+        <nav id="navigation" aria-label="Main navigation">
+          <a href="#services">Services</a><a href="#process">How we work</a><a href="#about">About</a>
+          <a class="button nav-cta" href={bookingHref}>Book a Free Consultation <span aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <section class="hero wrap" id="home" aria-labelledby="hero-heading">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dot"></span> DIGITAL MARKETING. CLEAR DIRECTION.</p>
+          <h1 id="hero-heading">{headlineParts[0]} <span class="soft">{headlineParts.length > 1 ? `& ${headlineParts.slice(1).join(' & ')}` : ''}</span></h1>
+          <p class="hero-description">{site.description}</p>
+          <a class="button" href={bookingHref}>Book a Free Consultation <span aria-hidden="true">↗</span></a>
+          <p class="hero-note">Facebook & Instagram Ads <span aria-hidden="true">/</span> Google Ads</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-grid"></div>
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="peak-glow"></div>
+          <svg class="peak" viewBox="0 0 400 360" fill="none">
+            <defs><linearGradient id="face" x1="60" y1="310" x2="245" y2="45" gradientUnits="userSpaceOnUse"><stop stop-color="#23434d"/><stop offset="1" stop-color="#84c5d7"/></linearGradient><linearGradient id="side" x1="200" y1="80" x2="345" y2="300"><stop stop-color="#2c5968"/><stop offset="1" stop-color="#172a33"/></linearGradient></defs>
+            <path d="m35 306 171-242 48 81 35-44 85 205Z" fill="url(#side)"/>
+            <path d="M35 306 206 64l-8 164-63 78Z" fill="url(#face)"/>
+            <path d="m206 64-8 164 56-83Z" fill="#528da0"/>
+            <path d="m135 306 119-161 35-44-7 131-61 74Z" fill="#345d6e"/>
+            <path d="m289 101-7 131 92 74Z" fill="#1c3541"/>
+            <path d="m35 306 171-242 48 81 35-44 85 205" stroke="#9cdaea" stroke-opacity=".45"/>
+            <path d="M35 306h339" stroke="#7bb9ca" stroke-opacity=".35"/>
+          </svg>
+          <div class="floating-chip meta-chip"><span class="chip-symbol">∞</span><span>Facebook &<br/>Instagram Ads</span></div>
+          <div class="floating-chip google-chip"><span class="chip-symbol google-symbol">G</span><span>Google Ads</span><span class="chip-arrow">↗</span></div>
+          <div class="art-caption"><span class="dot"></span> A CLEAR PATH FORWARD</div>
+        </div>
+      </section>
+      <div class="channel-strip"><div class="wrap channel-row"><p>The right message.<br/><strong>The right audience.</strong></p><span class="channel"><span class="meta-word">∞</span> Facebook & Instagram</span><span class="channel"><span class="google-word">G</span> Google Ads</span></div></div>
+      <section class="section wrap" id="services" aria-labelledby="services-heading">
+        <div class="section-head"><div><p class="eyebrow">01 / OUR SERVICES</p><h2 id="services-heading">Be seen.<br/><span class="soft">Be considered.</span></h2></div><p class="section-intro">Connect with potential customers across the platforms they use every day.</p></div>
+        <div class="service-grid">
+          {site.services.map(service => <article class={`service-card ${service.id}`}>
+            <div class="service-visual" aria-hidden="true">
+              {service.id === 'meta' ? <><div class="social-tile tile-back"><span class="tile-eyebrow">YOUR BRAND</span><div class="tile-landscape"><span></span></div><div class="tile-lines"><i></i><i></i></div></div><div class="social-tile tile-front"><div class="tile-profile"><span class="profile-dot"></span><span>Your business</span><span class="tile-dots">•••</span></div><div class="tile-landscape"><span></span></div><div class="tile-actions">♡ <span>↗</span></div></div><span class="platform-symbol">∞</span></> : <><div class="search-pill"><span>G</span><span>Find your next customer</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="10" cy="10" r="6" stroke="currentColor" stroke-width="1.5"/><path d="m15 15 5 5" stroke="currentColor" stroke-width="1.5"/></svg></div><div class="search-result"><span class="tile-eyebrow">SPONSORED · YOUR BUSINESS</span><div class="result-heading">Be there when they're looking.</div><div class="tile-lines"><i></i><i></i></div><span class="result-link">Discover more ↗</span></div><span class="platform-symbol">G</span></>}
+            </div>
+            <div class="service-body"><span class="service-label">{service.label}</span><h3>{service.name}</h3><p>{service.description}</p><div class="tags">{service.tags.map(tag => <span>{tag}</span>)}</div></div>
+          </article>)}
+        </div>
+        <p class="illustration-note">Illustrative ad placements. No client campaigns or results shown.</p>
+      </section>
+      <section class="process-section" id="process" aria-labelledby="process-heading"><div class="wrap section">
+        <div class="section-head"><div><p class="eyebrow">02 / HOW WE WORK</p><h2 id="process-heading">A clear plan.<br/><span class="soft">A focused approach.</span></h2></div><p class="section-intro">Our proposed approach starts with understanding your business and what you want your advertising to achieve.</p></div>
+        <div class="steps"><article><span class="step-number">01</span><h3>Understand your business</h3><p>Start with a conversation about your goals, your customers, and the offer you want to put in front of them.</p></article><article><span class="step-number">02</span><h3>Build the direction</h3><p>Identify the right platform and message, then define a campaign approach around your priorities and budget.</p></article><article><span class="step-number">03</span><h3>Launch & refine</h3><p>Bring the campaign to life, review its performance, and use what we learn to guide the next steps.</p></article></div>
+      </div></section>
+      <section class="section wrap about-section" id="about" aria-labelledby="about-heading"><div><p class="eyebrow">03 / ABOUT COVEPEAK</p><h2 id="about-heading">Your business.<br/><span class="soft">Our focus.</span></h2></div><div class="about-copy"><p class="large-copy">CovePeak Media is a digital marketing agency focused on helping businesses reach their audience through Facebook, Instagram, and Google Ads.</p><p>Our aim is simple: help businesses attract more customers and generate more sales with a clear, thoughtful approach to digital marketing.</p><a class="text-link" href={bookingHref}>Let’s talk about your business <span aria-hidden="true">↗</span></a></div></section>
+      <section class="contact-section wrap" id="contact" aria-labelledby="contact-heading"><div class="contact-panel"><p class="eyebrow">04 / LET’S TALK</p><h2 id="contact-heading">Ready for your<br/><span class="soft">next step?</span></h2><p>Let’s talk about your business, your goals, and how paid advertising could help you move forward.</p>{site.bookingUrl ? <a class="button" href={site.bookingUrl}>Book a Free Consultation <span aria-hidden="true">↗</span></a> : <><button class="button unavailable" type="button" disabled>Book a Free Consultation <span aria-hidden="true">↗</span></button><p class="booking-status">Online booking will be available soon.</p></>}</div></section>
+    </main>
+    <footer class="wrap footer"><a class="brand footer-brand" href="#home"><svg class="brand-mark" viewBox="0 0 46 34" fill="none" aria-hidden="true"><path d="M2 29 20 3l10 15 6-8 10 19H34L20 10 7 29Z" fill="currentColor"/></svg><span>CovePeak<span class="brand-sub">MEDIA</span></span></a><p>© {new Date().getFullYear()} CovePeak Media</p><a class="back-top" href="#home">Back to top <span aria-hidden="true">↑</span></a></footer>
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+      const nav = document.querySelector<HTMLElement>('#navigation');
+      const closeMenu = () => { toggle?.setAttribute('aria-expanded', 'false'); toggle?.setAttribute('aria-label', 'Open navigation'); nav?.classList.remove('is-open'); };
+      toggle?.addEventListener('click', () => { const open = toggle.getAttribute('aria-expanded') !== 'true'; toggle.setAttribute('aria-expanded', String(open)); toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation'); nav?.classList.toggle('is-open', open); });
+      nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', event => { if (event.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') { closeMenu(); toggle.focus(); } });
+      matchMedia('(min-width: 901px)').addEventListener('change', closeMenu);
+    </script>
+  </body>
+</html>
